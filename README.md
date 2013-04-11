@@ -3,7 +3,7 @@ Cocoapods Search Workflow for Alfred
 
 A simple workflow for searching CocoaPods.
 
-![screenshot](http://f.cl.ly/items/2n0Y0i302u1q1h472a0y/ACPscr.png)
+![screenshot](http://f.cl.ly/items/2e0b320I3V0L270g220X/Screen%20Shot%202013-04-11%20at%2012.26.46%20PM.png)
 
 **Notes:**
 
