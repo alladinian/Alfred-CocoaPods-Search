@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'Alfred-Cocoapods-Search' target in the 'Alfred-Cocoapods-Search' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+#endif
