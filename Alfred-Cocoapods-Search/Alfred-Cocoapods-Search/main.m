@@ -26,7 +26,7 @@ int main(int argc, const char * argv[])
         
         NSString *query = [NSString stringWithUTF8String:argv[1]];
         
-        NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://cocoapods.org/search?query=%@&ids=10", query]]];
+        NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://search.cocoapods.org/search.json?query=%@&ids=20&offset=0", query]]];
         [req addValue:@"gzip" forHTTPHeaderField:@"Accept-encoding"];
         
         NSHTTPURLResponse *response;
@@ -40,25 +40,24 @@ int main(int argc, const char * argv[])
         
         Alfred *alfred = [Alfred new];
         
-        for (NSString *result in searchResults)
+        for (NSDictionary *result in searchResults)
         {
             AlfredObject *obj = [AlfredObject new];
             obj.icon = @"both.png";
             
-            NSXMLDocument *doc = [[NSXMLDocument alloc] initWithXMLString:result options:NSXMLDocumentTidyHTML error:&error];
-            NSString *name = [[[[doc rootElement] nodesForXPath:@"//h3/a" error:&error] lastObject] stringValue];
-            NSString *url = [[[[[doc rootElement] nodesForXPath:@"//h3/a" error:&error] lastObject] attributeForName:@"href"] stringValue];
-            NSString *version = [[[[[doc rootElement] nodesForXPath:@"//span[@class='version']" error:&error] lastObject] childAtIndex:0] stringValue];
-            NSString *summary = [[[[doc rootElement] nodesForXPath:@"//p" error:&error] objectAtIndex:1] stringValue];
+            NSString *name = result[@"id"];
+            NSString *url = result[@"link"];
+            NSString *version = result[@"version"];
+            NSString *summary = result[@"summary"];
             
-            NSString *os = [[[[doc rootElement] nodesForXPath:@"//span[@class='os']" error:&error] lastObject] stringValue];
-            if (os)
+            NSArray *platforms = result[@"platforms"];
+            
+            if (platforms.count)
             {
-                if ([[os lowercaseString] isEqualToString:@"ios only"])
-                {
+                if (platforms.count == 1 && [platforms containsObject:@"ios"])
                     obj.icon = @"ios.png";
-                }
-                else obj.icon = @"osx.png";
+                else if (platforms.count == 1 && [platforms containsObject:@"osx"])
+                    obj.icon = @"osx.png";
             }
             
             obj.title = [NSString stringWithFormat:@"%@ (%@)", [name stripped], [version stripped]];
