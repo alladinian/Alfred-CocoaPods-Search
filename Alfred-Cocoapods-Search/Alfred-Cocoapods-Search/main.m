@@ -26,7 +26,7 @@ int main(int argc, const char * argv[])
         
         NSString *query = [NSString stringWithUTF8String:argv[1]];
         
-        NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://search.cocoapods.org/search.json?query=%@&ids=20&offset=0", query]]];
+        NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://search.cocoapods.org/api/v2.0/pods.picky.hash.json?query=%@&ids=20&offset=0", query]]];
         [req addValue:@"gzip" forHTTPHeaderField:@"Accept-encoding"];
         
         NSHTTPURLResponse *response;
