@@ -62,7 +62,7 @@ int main(int argc, const char * argv[])
             
             obj.title = [NSString stringWithFormat:@"%@ (%@)", [name stripped], [version stripped]];
             obj.subtitle = [summary stripped];
-            obj.arg = [url stripped];
+            obj.arg = [[url stripped] stringByAppendingString:[NSString stringWithFormat:@"|%@|%@", name, version]];
             obj.uid = [url stripped];
             
             [alfred.objects addObject:obj];
