@@ -25,9 +25,10 @@ int main(int argc, const char * argv[])
     @autoreleasepool {
         
         NSString *query = [NSString stringWithUTF8String:argv[1]];
-        
-        NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://search.cocoapods.org/api/v1/pods.picky.hash.json?query=%@&ids=20&offset=0", query]]];
+        NSURL *apiURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://search.cocoapods.org/api/pods?query=%@", query]];
+        NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:apiURL];
         [req addValue:@"gzip" forHTTPHeaderField:@"Accept-encoding"];
+        [req addValue:@"application/vnd.cocoapods.org+picky.hash.json; version=1" forHTTPHeaderField:@"Accept"];
         
         NSHTTPURLResponse *response;
         NSError *error;
