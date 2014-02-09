@@ -15,7 +15,7 @@ Enjoy!
 **Notes:**
 
 - The backend utility is now a binary written in pure Cocoa (instead of a python script). The result is that is wayyy faster and smaller than the previous version.
-- The workflow uses the [Cocoapods.org public search API](http://blog.cocoapods.org/Search-API-Version-1/). Many thanks to @floere for his work, tips & heads up.
+- The workflow uses the [Cocoapods.org public search API](http://blog.cocoapods.org/Search-API-Version-1/). Many thanks to [@floere](https://github.com/floere) for his work, tips & heads up.
 
 **Contact me:**
 
