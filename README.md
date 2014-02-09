@@ -5,12 +5,17 @@ A simple workflow for searching CocoaPods.
 
 ![screenshot](http://f.cl.ly/items/0y383Y1C3O2B2336040M/Screen%20Shot%202013-04-11%20at%2012.34.55%20PM.png)
 
+**How to use it**
+- Clone the repo (or download a zip) & double-click the `CocoaPods.alfredworkflow` file to install it into Alfred.
+- Bring Alfred up and type `pod` followed by your query.
+- Once you have a result selected Return opens the pod's homepage & Alt+Return copies the pod's definition for your `podfile`.
+
+Enjoy!
+
 **Notes:**
 
-- <del>The script is written in Python and it uses the BeautifulSoup module in order to execute XPath queries (if someone knows a way of using a stock library compatible with Python 2.6x+ feel free to contact me)</del>
-- <del>The portion of code that executes the request against cocoapods.org comes from _StackOverflow_ workflow by xhinking</del>
 - The backend utility is now a binary written in pure Cocoa (instead of a python script). The result is that is wayyy faster and smaller than the previous version.
-- The workflow uses the [Cocoapods.org public search API](http://blog.cocoapods.org/Search-API-Version-1/).
+- The workflow uses the [Cocoapods.org public search API](http://blog.cocoapods.org/Search-API-Version-1/). Many thanks to @floere for his work, tips & heads up.
 
 **Contact me:**
 
