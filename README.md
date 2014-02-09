@@ -19,4 +19,4 @@ Enjoy!
 
 **Contact me:**
 
-alladinian@gmail.com || @alladinian
+alladinian@gmail.com || [@alladinian](https://twitter.com/alladinian)
