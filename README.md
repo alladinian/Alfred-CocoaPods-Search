@@ -6,7 +6,8 @@ A simple workflow for searching CocoaPods.
 ![screenshot](http://f.cl.ly/items/0y383Y1C3O2B2336040M/Screen%20Shot%202013-04-11%20at%2012.34.55%20PM.png)
 
 **How to use it**
-- Clone the repo (or download a zip) & double-click the `CocoaPods.alfredworkflow` file to install it into Alfred.
+
+- [Download](https://github.com/alladinian/Alfred-CocoaPods-Search/raw/master/CocoaPods.alfredworkflow) the workflow directly from GitHub (or clone the repo / download a zip) & double-click the `CocoaPods.alfredworkflow` file to install it into Alfred.
 - Bring Alfred up and type `pod` followed by your query.
 - Once you have a result selected Return opens the pod's homepage & Alt+Return copies the pod's definition for your `podfile`.
 
