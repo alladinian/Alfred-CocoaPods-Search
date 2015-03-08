@@ -53,20 +53,20 @@ int main(int argc, const char * argv[])
             
             NSArray *platforms = result[@"platforms"];
             
-            if (platforms.count)
+            if (platforms.count && [summary isKindOfClass:[NSString class]] && [url isKindOfClass:[NSString class]])
             {
                 if (platforms.count == 1 && [platforms containsObject:@"ios"])
                     obj.icon = @"ios.png";
                 else if (platforms.count == 1 && [platforms containsObject:@"osx"])
                     obj.icon = @"osx.png";
+            
+                obj.title = [NSString stringWithFormat:@"%@ (%@)", [name stripped], [version stripped]];
+                obj.subtitle = [summary stripped];
+                obj.arg = [[url stripped] stringByAppendingString:[NSString stringWithFormat:@"|%@|%@", name, version]];
+                obj.uid = [url stripped];
+                
+                [alfred.objects addObject:obj];
             }
-            
-            obj.title = [NSString stringWithFormat:@"%@ (%@)", [name stripped], [version stripped]];
-            obj.subtitle = [summary stripped];
-            obj.arg = [[url stripped] stringByAppendingString:[NSString stringWithFormat:@"|%@|%@", name, version]];
-            obj.uid = [url stripped];
-            
-            [alfred.objects addObject:obj];
         }
         
         [alfred.objects sortUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES]]];
