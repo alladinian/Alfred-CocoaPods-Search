@@ -41,8 +41,8 @@ int main(int argc, const char * argv[])
         
         Alfred *alfred = [Alfred new];
         
-        for (NSDictionary *result in searchResults)
-        {
+        for (NSDictionary *result in searchResults) {
+            
             AlfredObject *obj = [AlfredObject new];
             obj.icon = @"both.png";
             
@@ -51,14 +51,19 @@ int main(int argc, const char * argv[])
             NSString *version = result[@"version"];
             NSString *summary = result[@"summary"];
             
+            if (![url isKindOfClass:[NSString class]] || ![summary isKindOfClass:[NSString class]]) {
+                // Ignore pods without url or summary - how did they pass validation though? :/
+                continue;
+            }
+            
             NSArray *platforms = result[@"platforms"];
             
-            if (platforms.count)
-            {
-                if (platforms.count == 1 && [platforms containsObject:@"ios"])
+            if (platforms.count) {
+                if (platforms.count == 1 && [platforms containsObject:@"ios"]) {
                     obj.icon = @"ios.png";
-                else if (platforms.count == 1 && [platforms containsObject:@"osx"])
+                } else if (platforms.count == 1 && [platforms containsObject:@"osx"]) {
                     obj.icon = @"osx.png";
+                }
             }
             
             obj.title = [NSString stringWithFormat:@"%@ (%@)", [name stripped], [version stripped]];
