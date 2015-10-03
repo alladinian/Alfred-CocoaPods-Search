@@ -20,4 +20,5 @@ Enjoy!
 
 **Contact me:**
 
-alladinian@gmail.com || [@alladinian](https://twitter.com/alladinian)
+[![Twitter](https://img.shields.io/badge/twitter-@alladinian-blue.svg?style=flat)](https://twitter.com/alladinian)
+[![eMail](https://img.shields.io/badge/email-alladinian@gmail.com-blue.svg?style=flat)](mailto:alladinian@gmail.com?SUBJECT=About Alfred Cocoapods Search)
